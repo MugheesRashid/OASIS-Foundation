@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------- */
+/* Self-hosted fonts                                                       */
+/* ---------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/BricolageGrotesque.ttf") format("truetype-variations");
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/InstrumentSans.ttf") format("truetype-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/InstrumentSans-Italic.ttf") format("truetype-variations");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono.ttf") format("truetype-variations");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Design tokens — OASIS "Ember" system                                    */
+/* ---------------------------------------------------------------------- */
+
+:root {
+  /* Surfaces */
+  --ink: #050a0e;
+  --ink-raised: #0d1620;
+  --ink-line: #1b2731;
+
+  /* Text */
+  --paper: #f5f6f3;
+  --paper-dim: #9aa3aa;
+
+  /* Accents */
+  --ember: #f2a93b;
+  --ember-soft: #f7c979;
+  --signal: #3ed6c4;
+  --bloom: #e8637a;
+  --good: #6fcf97;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.5rem;
+}
+
+/* Light mode is an intentional secondary palette — the brand's native
+   register is dark ("igniting the next generation"), so light mode keeps
+   the same accent logic but on a warm paper surface instead of inverting
+   colors mechanically. */
+[data-theme="light"] {
+  --ink: #faf8f4;
+  --ink-raised: #ffffff;
+  --ink-line: #e7e2d6;
+
+  --paper: #14181b;
+  --paper-dim: #5b6067;
+
+  --ember: #c67c1c;
+  --ember-soft: #e6a94f;
+  --signal: #128a7c;
+  --bloom: #c23d57;
+  --good: #2f8f5b;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-raised: var(--ink-raised);
+  --color-ink-line: var(--ink-line);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-ember: var(--ember);
+  --color-ember-soft: var(--ember-soft);
+  --color-signal: var(--signal);
+  --color-bloom: var(--bloom);
+  --color-good: var(--good);
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Base                                                                    */
+/* ---------------------------------------------------------------------- */
+
+* {
+  border-color: var(--ink-line);
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll; avoid double-smoothing */
+  background: var(--ink);
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background: var(--ember);
+  color: var(--ink);
+}
+
+/* Visible keyboard focus, always */
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Thin custom scrollbar that matches the brand */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink-line);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ember);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 100;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Utility: eyebrow label used across sections */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+/* Respect reduced motion globally as a hard backstop, individual
+   components additionally branch on useReducedMotion(). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* EmberParticles — rising ember animation                                 */
+/* ---------------------------------------------------------------------- */
+@keyframes rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    /* Moves particles upwards and applies the custom drift horizontal offset */
+    transform: translateY(-100vh) translateX(var(--drift));
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
