@@ -208,11 +208,27 @@ export const volunteerRoles = [
 ];
 
 export const cities = [
-  { name: "Islamabad", x: 54, y: 34 },
-  { name: "Lahore", x: 62, y: 42 },
-  { name: "Karachi", x: 32, y: 78 },
-  { name: "Peshawar", x: 42, y: 24 },
-];
+  {
+    name: "Islamabad",
+    lat: 33.6844,
+    lng: 73.0479,
+  },
+  {
+    name: "Lahore",
+    lat: 31.5204,
+    lng: 74.3587,
+  },
+  {
+    name: "Karachi",
+    lat: 24.8607,
+    lng: 67.0011,
+  },
+  {
+    name: "Peshawar",
+    lat: 34.0151,
+    lng: 71.5249,
+  },
+]
 
 export const faq = [
   {
@@ -237,7 +253,7 @@ export const joinCta = {
   eyebrow: "Applications open",
   headline: "Ready to start learning?",
   sub: "Join our community, grab some free resources, and start building your skills today.",
-  cta: { label: "Join OASIS", href: "#" },
+  cta: { label: "Join OASIS", href: "https://docs.google.com/forms/d/e/1FAIpQLSddWbsCuaj-HNh215u0w6fkGaKLcyCcFWv98kd80EK1h_DP_Q/viewform" },
   reassurance: "100% free. No spam. Join a growing community of Pakistani students.",
 };
 

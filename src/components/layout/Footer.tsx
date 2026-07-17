@@ -3,7 +3,7 @@ import { footerLinks, site } from "@/lib/data";
 export function Footer() {
   return (
     <footer className="relative border-t border-ink-line bg-ink px-6 pt-20 pb-10 md:px-10">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2">
             <a href="#" className="font-display text-2xl text-paper">

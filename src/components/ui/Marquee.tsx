@@ -18,7 +18,6 @@ export function Marquee({
   speed?: number;
   className?: string;
 }) {
-  const prefersReduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,7 +25,6 @@ export function Marquee({
   }, []);
 
   const loop = [...items, ...items];
-  const shouldFreeze = mounted && prefersReduced;
 
   return (
     <div
@@ -39,8 +37,7 @@ export function Marquee({
         className="flex w-max gap-10 whitespace-nowrap [animation:marquee_var(--speed)_linear_infinite] group-hover:[animation-play-state:paused]"
         style={
           {
-            "--speed": shouldFreeze ? "0s" : `${speed}s`,
-            animation: shouldFreeze ? "none" : undefined,
+            "--speed": `${speed}s`,
           } as React.CSSProperties
         }
       >

@@ -27,7 +27,7 @@ export function Proof() {
 
   return (
     <section className="bg-ink px-6 py-28 md:px-10 md:py-36">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="max-w-2xl">
           <SectionEyebrow>Proof, not promises</SectionEyebrow>
           <h2 className="mt-6 font-display text-4xl leading-tight text-paper md:text-5xl">
@@ -102,9 +102,8 @@ export function Proof() {
                 {proofStories.map((_, i) => (
                   <span
                     key={i}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === index ? "w-6 bg-ember" : "w-1.5 bg-ink-line"
-                    }`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? "w-6 bg-ember" : "w-1.5 bg-ink-line"
+                      }`}
                   />
                 ))}
               </div>

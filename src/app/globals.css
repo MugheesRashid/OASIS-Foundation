@@ -41,7 +41,7 @@
 
 :root {
   /* Surfaces */
-  --ink: #050a0e;
+  --ink: #141516;
   --ink-raised: #0d1620;
   --ink-line: #1b2731;
 
@@ -112,6 +112,13 @@
 html {
   scroll-behavior: auto; /* Lenis handles smooth scroll; avoid double-smoothing */
   background: var(--ink);
+  cursor: none;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+a{
+  cursor: none;
 }
 
 body {
@@ -170,7 +177,7 @@ body {
 
 /* Respect reduced motion globally as a hard backstop, individual
    components additionally branch on useReducedMotion(). */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -179,7 +186,7 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
+} */
 
 /* ---------------------------------------------------------------------- */
 /* EmberParticles — rising ember animation                                 */

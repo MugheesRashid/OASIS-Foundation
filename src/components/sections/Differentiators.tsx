@@ -10,7 +10,7 @@ const accentText: Record<string, string> = {
 export function Differentiators() {
   return (
     <section className="bg-ink px-6 py-28 md:px-10 md:py-36">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="grid gap-4 md:grid-cols-3">
           {differentiators.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.1}>

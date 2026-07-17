@@ -78,7 +78,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-theme="dark" className="h-full" suppressHydrationWarning>
+    <html lang="en" data-theme="light" className="h-full w-screen" suppressHydrationWarning>
       <head suppressHydrationWarning>
         <script
           type="application/ld+json"
@@ -98,7 +98,7 @@ export default function RootLayout({
           <MouseFollower />
           
           {/* Main App structural wrapper */}
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen w-screen">
             {children}
           </div>
         </Providers>

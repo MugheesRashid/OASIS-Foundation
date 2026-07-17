@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { approach } from "@/lib/data";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { Reveal } from "@/components/ui/Reveal";
@@ -12,7 +12,7 @@ export function Approach() {
 
   return (
     <section id="approach" className="bg-ink-raised px-6 py-28 md:px-10 md:py-36">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="max-w-2xl">
           <SectionEyebrow>How change happens</SectionEyebrow>
           <h2 className="mt-6 font-display text-4xl leading-tight text-paper md:text-5xl">

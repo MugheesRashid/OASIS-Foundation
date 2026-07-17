@@ -52,7 +52,7 @@ export function WhoWeAre() {
 
   return (
     <section id="about" ref={sectionRef} className="relative bg-ink">
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className="mx-auto  px-6 md:px-10">
         <div className="grid gap-12 md:grid-cols-2 md:gap-16">
           {/* Left: pinned narrative */}
           <div ref={pinRef} className="h-max py-24 md:py-32">

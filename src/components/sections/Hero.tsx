@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink px-6 pt-28 pb-20 md:px-10"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink px-6 pt-32 pb-20 md:px-10"
     >
       {/* Atmosphere */}
       <div

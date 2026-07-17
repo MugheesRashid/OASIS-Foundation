@@ -7,6 +7,7 @@ import { nav, site } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function Header() {
   const [condensed, setCondensed] = useState(false);
@@ -53,16 +54,16 @@ export function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
           condensed
-            ? "py-3 bg-ink/80 backdrop-blur-lg border-b border-ink-line"
-            : "py-6 bg-transparent"
+            ? " bg-ink/80 backdrop-blur-lg border-b border-ink-line"
+            : " bg-transparent"
         )}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
+        <div className="mx-auto flex  items-center justify-between px-6 md:px-10">
           <a
             href="#"
             className="font-display text-xl tracking-tight text-paper"
           >
-            OASIS<span className="text-ember">.</span>
+            <Image src="/Logo.png" alt="" width={100} height={100}></Image>
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
