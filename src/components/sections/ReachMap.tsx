@@ -58,8 +58,8 @@ export function ReachMap() {
                   onMouseEnter={() => setHovered(city.name)}
                   onMouseLeave={() => setHovered(null)}
                   className={`flex items-center gap-3 text-sm cursor-pointer transition-colors ${hovered === city.name
-                      ? "text-ember"
-                      : "text-paper-dim"
+                    ? "text-ember"
+                    : "text-paper-dim"
                     }`}
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-current" />
