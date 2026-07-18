@@ -17,7 +17,7 @@ const wordVariants: Variants = {
   }),
 };
 
-export function Hero() {
+export function Hero({ start }: { start: boolean }) {
   return (
     <section
       id="hero"
@@ -36,7 +36,7 @@ export function Hero() {
       <div className="relative mx-auto w-full max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: start ? 1 : 0, y: start ? 0 : 12 }}
           transition={{ duration: 0.6, delay: 1 }}
           className="eyebrow mb-8"
         >
@@ -54,7 +54,7 @@ export function Hero() {
                 custom={i}
                 variants={wordVariants}
                 initial="hidden"
-                animate="visible"
+                animate={start ? "visible" : "hidden"}
               >
                 {word}
               </motion.span>
@@ -64,7 +64,7 @@ export function Hero() {
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: start ? 1 : 0, y: start ? 0 : 16 }}
           transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-paper-dim md:text-xl"
         >
@@ -73,7 +73,7 @@ export function Hero() {
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: start ? 1 : 0, y: start ? 0 : 16 }}
           transition={{ duration: 0.8, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
@@ -89,7 +89,7 @@ export function Hero() {
       <motion.a
         href="#about"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+          animate={{ opacity: start ? 1 : 0 }}
         transition={{ delay: 1.6, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-xs text-paper-dim"
       >

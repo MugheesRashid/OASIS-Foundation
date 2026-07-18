@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useEffect } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -12,13 +15,30 @@ import { GetInvolved } from "@/components/sections/GetInvolved";
 import { ReachMap } from "@/components/sections/ReachMap";
 import { FAQ } from "@/components/sections/FAQ";
 import { JoinCTA } from "@/components/sections/JoinCTA";
+import { Preloader } from "@/components/layout/Preloader";
 
 export default function Home() {
+    const [ready, setReady] = useState(false);
+     useEffect( () => {
+    (
+      async () => {
+          const LocomotiveScroll = (await import('locomotive-scroll')).default
+          const locomotiveScroll = new LocomotiveScroll();
+
+          setTimeout( () => {
+            document.body.style.cursor = 'default'
+            window.scrollTo(0,0);
+          }, 2000)
+      }
+    )()
+  }, [])
+
   return (
     <>
+      <Preloader onComplete={() => setReady(true)} />
       <Header />
       <main id="main" className="flex-1 w-screen">
-        <Hero />
+        <Hero start={ready} />
         <ImpactBar />
         <WhoWeAre />
         <Mission />
