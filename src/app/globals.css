@@ -40,21 +40,22 @@
 /* ---------------------------------------------------------------------- */
 
 :root {
-  /* Surfaces */
-  --ink: #141516;
-  --ink-raised: #0d1620;
-  --ink-line: #1b2731;
+  /* Backgrounds */
+  --ink: #08111F;          /* Deep midnight background */
+  --ink-raised: #0D1B2A;   /* Elevated sections/cards */
+  --ink-line: #1F3448;     /* Borders/dividers */
 
   /* Text */
-  --paper: #f5f6f3;
-  --paper-dim: #9aa3aa;
+  --paper: #F4F7FB;        /* Primary text */
+  --paper-dim: #A9B8C8;    /* Secondary text */
 
   /* Accents */
-  --ember: #f2a93b;
-  --ember-soft: #f7c979;
-  --signal: #3ed6c4;
-  --bloom: #e8637a;
-  --good: #6fcf97;
+  --ember: #4ADE80;       /* Primary CTA / growth green */
+  --ember-soft: #86EFAC;  /* Soft green highlight */
+
+  --signal: #22D3EE;      /* Innovation / tech accent */
+  --bloom: #FB923C;       /* Human warmth / impact accent */
+  --good: #6FCF97;        /* Success states */
 
   --radius-sm: 0.5rem;
   --radius-md: 0.875rem;
@@ -112,15 +113,14 @@
 html {
   scroll-behavior: auto; /* Lenis handles smooth scroll; avoid double-smoothing */
   background: var(--ink);
-  cursor: none;
   overflow-x: hidden;
   width: 100vw;
 }
 
-a{
+/* a{
   cursor: none;
 }
-
+ */
 body {
   background: var(--ink);
   color: var(--paper);
