@@ -18,33 +18,33 @@ export function getLenis() {
  * motion — native scroll is faster and calmer for them.
  */
 export function useSmoothScroll() {
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced) return;
+  // useEffect(() => {
+  //   const prefersReduced = window.matchMedia(
+  //     "(prefers-reduced-motion: reduce)"
+  //   ).matches;
+  //   if (prefersReduced) return;
 
-    gsap.registerPlugin(ScrollTrigger);
+  //   gsap.registerPlugin(ScrollTrigger);
 
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      touchMultiplier: 1.2,
-    });
-    lenisSingleton = lenis;
+  //   const lenis = new Lenis({
+  //     duration: 1.1,
+  //     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  //     smoothWheel: true,
+  //     touchMultiplier: 1.2,
+  //   });
+  //   lenisSingleton = lenis;
 
-    lenis.on("scroll", ScrollTrigger.update);
+  //   lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+  //   gsap.ticker.add((time) => {
+  //     lenis.raf(time * 1000);
+  //   });
+  //   gsap.ticker.lagSmoothing(0);
 
-    return () => {
-      lenis.destroy();
-      lenisSingleton = null;
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
-    };
-  }, []);
+  //   return () => {
+  //     lenis.destroy();
+  //     lenisSingleton = null;
+  //     gsap.ticker.remove((time) => lenis.raf(time * 1000));
+  //   };
+  // }, []);
 }

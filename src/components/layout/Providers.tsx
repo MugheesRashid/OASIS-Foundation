@@ -5,7 +5,7 @@ import { ThemeProvider } from "next-themes";
  import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 function SmoothScrollBridge() {
-  //  useSmoothScroll();
+    useSmoothScroll();
   return null;
 }
 

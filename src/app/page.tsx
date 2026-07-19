@@ -16,6 +16,7 @@ import { ReachMap } from "@/components/sections/ReachMap";
 import { FAQ } from "@/components/sections/FAQ";
 import { JoinCTA } from "@/components/sections/JoinCTA";
 import { Preloader } from "@/components/layout/Preloader";
+import { EmberRail } from "@/components/layout/EmberRail";
 
 export default function Home() {
     const [ready, setReady] = useState(false);
@@ -38,6 +39,7 @@ export default function Home() {
       <Preloader onComplete={() => setReady(true)} />
       <Header />
       <main id="main" className="flex-1 w-screen">
+        <EmberRail />
         <Hero start={ready} />
         <ImpactBar />
         <WhoWeAre />

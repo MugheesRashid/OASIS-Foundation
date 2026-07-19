@@ -94,11 +94,11 @@ export default function RootLayout({
         />
         <Providers>
           {/* Overlays rendered globally away from structural layout container */}
-          <EmberRail />
+          {/* <EmberRail /> */}
           <MouseFollower />
           
           {/* Main App structural wrapper */}
-          <div className="flex flex-col min-h-screen w-screen">
+          <div className="flex z-[99] flex-col min-h-screen w-screen">
             {children}
           </div>
         </Providers>

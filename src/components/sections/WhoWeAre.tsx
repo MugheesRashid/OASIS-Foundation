@@ -28,11 +28,11 @@ export function WhoWeAre() {
   const pinRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    if (prefersReduced || !isDesktop) return;
+    // const prefersReduced = window.matchMedia(
+    //   "(prefers-reduced-motion: reduce)"
+    // ).matches;
+    // const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    // if (prefersReduced || !isDesktop) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
