@@ -31,7 +31,7 @@ export function Hero({ start }: { start: boolean }) {
             "radial-gradient(60% 50% at 50% 0%, rgba(242,169,59,0.14), transparent 70%), radial-gradient(40% 40% at 90% 80%, rgba(62,214,196,0.08), transparent 70%)",
         }}
       />
-      <EmberParticles />
+      <EmberParticles count={60} />
 
       <div className="relative mx-auto w-full max-w-6xl">
         <motion.div

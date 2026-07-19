@@ -15,12 +15,12 @@ export function MouseFollower() {
 
   useEffect(() => {
 
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: no-preference)"
-    ).matches;
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    // const prefersReduced = window.matchMedia(
+    //   "(prefers-reduced-motion: no-preference)"
+    // ).matches;
+    // const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
-     if (prefersReduced && !isTouch) return;
+    //  if (prefersReduced && !isTouch) return;
 
     const dot = dotRef.current;
     const ring = ringRef.current;

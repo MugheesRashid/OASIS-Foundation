@@ -42,12 +42,12 @@ export function Preloader({
   const rafRef = useRef<number | undefined>(undefined);
 
   // Decide, once, on mount, whether this play-through should actually show.
-  useEffect(() => {
-    const alreadyPlayed =
-      once &&
-      typeof window !== "undefined" &&
-      sessionStorage.getItem("oasis-preloader") === "ror";
+  const alreadyPlayed =
+    once &&
+    typeof window !== "undefined" &&
+    sessionStorage.getItem("oasis-preloader") === "seen";
 
+  useEffect(() => {
     if (alreadyPlayed) {
       onComplete?.();
       return;
@@ -70,14 +70,14 @@ export function Preloader({
   useEffect(() => {
     if (!visible) return;
 
-    // if (prefersReduced) {
-    //   // Skip the count animation entirely — jump straight to done after a
-    //   // short, deliberate beat so the transition doesn't feel abrupt.
-    //   // eslint-disable-next-line react-hooks/set-state-in-effect
-    //   setProgress(100);
-    //   const t = setTimeout(() => setVisible(true), 300);
-    //   return () => clearTimeout(t);
-    // }
+    if (alreadyPlayed) {
+      // Skip the count animation entirely — jump straight to done after a
+      // short, deliberate beat so the transition doesn't feel abrupt.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setProgress(100);
+      const t = setTimeout(() => setVisible(true), 300);
+      return () => clearTimeout(t);
+    }
 
     function tick(ts: number) {
       if (startRef.current === null) startRef.current = ts;
@@ -112,7 +112,7 @@ export function Preloader({
     <AnimatePresence onExitComplete={handleExitComplete}>
       {visible && (
         <motion.div
-          style={{ willChange: "opacity, transform"}}
+          style={{ willChange: "opacity, transform" }}
           key="preloader"
           role="status"
           aria-live="polite"

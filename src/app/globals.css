@@ -117,17 +117,19 @@ html {
   scroll-behavior: auto; /* Lenis handles smooth scroll; avoid double-smoothing */
   background: var(--ink);
   overflow-x: hidden;
+  cursor: none;
   width: 100vw;
 }
 
-/* a{
+a{
   cursor: none;
 }
- */
+
 body {
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-body);
+    cursor: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 0.4s ease, color 0.4s ease;

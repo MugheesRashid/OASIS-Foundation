@@ -31,7 +31,7 @@ export function EmberParticles({ count = 22 }: { count?: number }) {
     [count]
   );
 
-  if (!mounted || prefersReduced) return null;
+  if (!mounted) return null;
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>

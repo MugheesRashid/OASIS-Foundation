@@ -30,7 +30,7 @@ export function Button({
   const prefersReduced = useReducedMotion();
 
   function handleMove(e: MouseEvent) {
-    if (prefersReduced || !ref.current) return;
+    if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
